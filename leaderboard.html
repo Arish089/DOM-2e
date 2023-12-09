@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <style>
+        #upper{ 
+            margin: auto;
+            width: 450px;
+            height: 100px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .min{
+            border: 3px solid black;
+            width: 32%;
+            height: 100px;
+            background-color: red;
+        }
+        .max{
+            border: 3px solid black;
+            height: 100px;
+            width: 32%;
+            background-color: green;
+        }
+        #screen{
+            width: 280px;
+            margin: auto;
+            height: 120px;
+            background-color: gray;
+            border: 3px solid black;
+        }
+        #subtext{
+            display: flex;
+            justify-content: space-between;
+               width: 380px;
+               height: 50px;
+               margin: auto;
+               font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        h1{
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        
+        }
+        #keypad{
+            justify-content: center;
+            width: 270px;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            grid-template-rows: auto;
+            gap: 30px;
+            margin: auto;
+            margin-top: 50px;
+        }
+        #keypad > button{
+            border: 2px solid black;
+            font-weight: bold;
+            height: 70px;
+            font-size: 30px;
+        }
+        .green{
+            background-color: rgba(2, 87, 2, 0.663);
+        }
+        .orange{
+            background-color: rgba(231, 117, 24, 0.836);
+        }
+        #keypad > button:last-child:nth-child(3n - 2){
+            grid-column-end: 3;
+            margin: auto;
+            width: 70px;
+            align-self: center;
+            background-color: rgb(117, 7, 117);
+            color: #FFF;
+        }
+       #enter{
+        width:280px;
+        height: 70px;
+        background-color: black;
+        color: #FFF;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+       }
+    </style>
+    
+</head>
+<body>
+    <div id="upper">
+        <div class="min">43</div>
+        <div class="max">2019</div>
+    </div>
+    <form>
+    <div id="subtext">
+        <h1>MIN</h1>
+        <h1>MAX</h1>
+        </div>
+        <h1>SCORE</h1>
+    <div id="screen"></div>
+    <div id="keypad">
+        <button class="green">1</button>
+        <button class="orange">2</button>
+        <button class="green">3</button>
+        <button class="orange">4</button>
+        <button class="orange">5</button>
+        <button class="orange">6</button>
+        <button class="green">7</button>
+        <button class="orange">8</button>
+        <button class="green">9</button>
+        <button>0</button>
+    </div><br>
+    <button id="enter" type="reset">ENTER</button>
+    </form>
+    
+</body>
+<script>
+    let myform = document.querySelector('form');
+    let min = document.querySelector('#upper > .min'); 
+    let max = document.querySelector('#upper > .max');
+    let screen = document.getElementById("screen");
+    let btn = document.querySelectorAll('#keypad > button');
+    let enter = document.getElementById("enter");
+    let inp ="";
+    for(let i = 0; i < btn.length; i++){
+        btn[i].addEventListener('click',function(e)
+        {
+          e.preventDefault();
+            inp += btn[i].innerText;
+            screen.innerText = inp;
+            let inp1 = Number(inp);
+            console.log(typeof inp1);
+        })
+    }
+
+    
+    enter.addEventListener('click',function(e)
+            {
+             e.preventDefault();
+                    { if(Number(inp) < Number(min.innerText)){
+                         min.innerText = Number(inp) ;
+                         console.log(min.innerText)
+                     }
+                     else{
+                        null;
+                     }}
+         
+                     
+                    { if(Number(inp) > Number(max.innerText)){
+                         max.innerText = Number(inp);
+                         console.log(max.innerText);
+                     }else{
+                        null;
+                     }
+                    }    
+            
+        })
+        /**
+            enter.addEventListener('click',function()
+            {
+              myform.reset();
+            })
+        */
+        
+           
+            
+        /**
+            {
+                               
+                       {
+                         if(Number(inp) < Number(min.innerText)){
+                             min.innerText = Number(inp) ;
+                             console.log(min.innerText)
+                         }
+                         else{
+                            null;
+                         }}
+             
+                         
+                        { if(Number(inp) > Number(max.innerText)){
+                             max.innerText = Number(inp);
+                             console.log(max.innerText);
+                         }else{
+                            null;
+                         }
+                        }    
+                    })
+        */
+        
+    
+    
+
+</script>
+</html>
