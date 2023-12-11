@@ -17,12 +17,18 @@
             width: 32%;
             height: 100px;
             background-color: red;
+            font-size: 25px;
+            font-weight: 600;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         .max{
             border: 3px solid black;
             height: 100px;
             width: 32%;
             background-color: green;
+            font-size: 25px;
+            font-weight: 600;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         #screen{
             width: 280px;
@@ -85,6 +91,11 @@
         align-items: center;
         font-size: 30px;
        }
+       #screen{
+        font-weight: 600;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 30px;
+       }
     </style>
     
 </head>
@@ -130,8 +141,6 @@
           e.preventDefault();
             inp += btn[i].innerText;
             screen.innerText = inp;
-            let inp1 = Number(inp);
-            console.log(typeof inp1);
         })
     }
 
@@ -155,39 +164,9 @@
                         null;
                      }
                     }    
-            
+            screen.innerText=null;
         })
-        /**
-            enter.addEventListener('click',function()
-            {
-              myform.reset();
-            })
-        */
         
-           
-            
-        /**
-            {
-                               
-                       {
-                         if(Number(inp) < Number(min.innerText)){
-                             min.innerText = Number(inp) ;
-                             console.log(min.innerText)
-                         }
-                         else{
-                            null;
-                         }}
-             
-                         
-                        { if(Number(inp) > Number(max.innerText)){
-                             max.innerText = Number(inp);
-                             console.log(max.innerText);
-                         }else{
-                            null;
-                         }
-                        }    
-                    })
-        */
         
     
     
